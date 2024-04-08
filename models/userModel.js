@@ -17,18 +17,12 @@ const userSchema = new Schema({
     type: Boolean,
     required: true,
     default: false
-  },
-  createdAt: {
-    type: Date,
-    required: true,
-    immutable: true,
-    default: () => Date.now()
   }
-})
+}, {timestamps: true})
 
 // Create model with schema
 
-const User = mongoose.Model('User', userSchema)
+const User = mongoose.model('User', userSchema)
 
 // Export model to be used in Controllers
 

@@ -28,14 +28,12 @@ const playerSchema = new Schema({
     required: true
   },
   tournamentsPlayed: {
-    type: [{
-      type: ObjectId,
-      ref: 'Tournament'
-    }],
+    type: [ObjectId],
+    ref: 'Tournament',
     required: true,
     validate: [arrayMinLengthOne, 'Player must have at least one tournament played']
   }
-})
+}, {timestamps: true})
 
 // Validator function to ensure at least one element is in the array
 

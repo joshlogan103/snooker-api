@@ -1,7 +1,7 @@
 // Import modules
 
-import './config/database.js'
 import 'dotenv/config.js'
+import './config/database.js'
 import express from 'express'
 import cors from 'cors'
 

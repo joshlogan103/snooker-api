@@ -7,17 +7,13 @@ const ObjectId = mongoose.Types.ObjectId
 
 const performanceSchema = new Schema({
   player: {
-    type: [{
-      type: ObjectId,
-      ref: 'Player'
-    }],
+    type: ObjectId,
+    ref: 'Player',
     required: true
   },
   tournament: {
-    type: {
-      type: ObjectId,
-      ref: 'Tournament'
-    },
+    type: ObjectId,
+    ref: 'Tournament',
     required: true
   },
   position: {
@@ -28,7 +24,7 @@ const performanceSchema = new Schema({
     type: Number,
     required: true
   }
-})
+}, {timestamps: true})
 
 // Create model with schema
 

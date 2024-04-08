@@ -9,9 +9,9 @@ const leaderboardSchema = new Schema({
   positions: {
     type: [{
       type: ObjectId,
-      ref: 'Player'
-    }],
-    required: true
+      ref: 'Player',
+      required: true
+    }] 
   },
   prizeMoneyBreakdown: {
     type: [Number],
@@ -22,7 +22,7 @@ const leaderboardSchema = new Schema({
 // Define Location sub-document schema for use in tournament schema
 
 const locationSchema = new Schema({
-  county: {
+  country: {
     type: String,
     required: true
   },
@@ -63,7 +63,7 @@ const tournamentSchema = new Schema({
     type: Date,
     required: true
   }
-})
+}, {timestamps: true})
 
 // Create model with schema
 

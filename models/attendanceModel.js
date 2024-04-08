@@ -7,17 +7,13 @@ const ObjectId = mongoose.Types.ObjectId
 
 const attendanceSchema = new Schema({
   user: {
-    type: {
-      type: ObjectId,
-      ref: 'User'
-    },
+    type: ObjectId,
+    ref: 'User',
     required: true
   },
   tournament: {
-    type: {
-      type: ObjectId,
-      ref: 'Tournament'
-    },
+    type: ObjectId,
+    ref: 'Tournament',
     required: true
   },
   pricePaid: {
@@ -27,7 +23,7 @@ const attendanceSchema = new Schema({
     type: Date,
     required: true
   }
-})
+}, {timestamps: true})
 
 // Create model with schema
 
