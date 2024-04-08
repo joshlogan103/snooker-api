@@ -6,7 +6,7 @@ I am building an application that allows users track Snooker players and tournam
 
 ## User Stories
 
-#### MVP Goals
+### MVP Goals
 
 For Users:
 
@@ -26,7 +26,7 @@ For Admins:
 * AAA, I want the system to automatically generate player performance documents based on tournament data
 * AAA, I want player documents to automatically track lifetime earnings and tournaments played
 
-#### Stretch Goals
+### Stretch Goals
 
 For Users:
 
@@ -41,15 +41,18 @@ For Admins:
 
 ![ERD](./Images/Snooker%20Database%20-%20ERD.png)
 
-[View ERD on lucid](https://lucid.app/lucidchart/a634f0c0-61b5-4bc7-bea3-2270a29b5db5/edit?viewport_loc=135%2C154%2C1762%2C851%2C0_0&invitationId=inv_4298a22f-f984-455e-b754-15ff8e46b5d7)
+[View ERD on Lucid](https://lucid.app/lucidchart/a634f0c0-61b5-4bc7-bea3-2270a29b5db5/edit?viewport_loc=135%2C154%2C1762%2C851%2C0_0&invitationId=inv_4298a22f-f984-455e-b754-15ff8e46b5d7)
 
 ## Front-end Wire Frames
 
-![Player Page]()
+![Home Page](./Images/Snooker%20API%20-%20Home%20Page.png)
+[View home page wireframe on Figma](https://www.figma.com/file/J4JhBwQdJ9wohDR4MFKtDm/Snooker-API---Home-Page?type=design&node-id=0-1&mode=design&t=Gj86L80CwUY1zzKY-0)
 
-![Tournament Page]()
+![User Profile](./Images/Snooker%20API%20-%20User%20Profile.png)
+[View user profile wireframe on Figma](https://www.figma.com/file/Be09dSuaPoV75e1VvB0SI8/Snooker-API---User-Profile?type=design&node-id=0-1&mode=design&t=IWsajMHuutBX5jYg-0)
 
-![User Page]()
+![Admin View](./Images/Snooker%20API%20-%20Admin%20View.png)
+[View admin view wireframe on Figma](https://www.figma.com/file/03yDWXOqgcW1Z18OUOxryV/Snooker-API---Admin-View?type=design&node-id=0-1&mode=design&t=l2WsKWXsYZnchYMr-0)
 
 ## Project Plan and Task Management
 
