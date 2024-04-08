@@ -1,3 +1,3 @@
-# Snooker API
+# Snooker API - Maximum Break
 
-An API for data on Snooker players and tournaments
+An application that allows Snooker enthusiasts to browse tournaments, analyze player performance, and track their attendence of events

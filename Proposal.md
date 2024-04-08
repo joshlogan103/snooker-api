@@ -32,6 +32,7 @@ For Users:
 
 * AAU, I want to be able to login persistently to the application
 * AAU, if I am logged in, I want to be able to track my attendence at tournaments
+* AAU, I would like to be able to leave comments on tournaments and players
 
 For Admins:
 

@@ -1,0 +1,57 @@
+import mongoose from 'mongoose'
+
+const Schema = mongoose.Schema
+const ObjectId = mongoose.Types.ObjectId
+
+// Define sub-document schema for use in tournament schema
+
+const leaderboardSchema = new Schema({
+  positions: {
+    type: [{
+      type: ObjectId,
+      ref: 'Player'
+    }],
+    required: true
+  },
+  prizeMoneyBreakdown: {
+    type: [Number],
+    required: true
+  }
+})
+
+// Define top-level schema for use in model
+
+const tournamentSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  location: {
+    type: String,
+    required: true
+  },
+  prizeMoney: {
+    type: Number,
+    required: true
+  },
+  leaderboard: {
+    type: leaderboardSchema,
+    required: true
+  },
+  startDate: {
+    type: Date,
+    required: true
+  },
+  endDate: {
+    type: Date,
+    required: true
+  }
+})
+
+// Create model with schema
+
+const Tournament = mongoose.model('Tournament', tournamentSchema)
+
+// Export model to be used in Controllers
+
+export default Tournament
