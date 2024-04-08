@@ -1,0 +1,15 @@
+{
+  "name": "Nottingham Classic",
+  "location": {
+      "country": "United Kingdom",
+      "city": "Nottingham",
+      "venueName": "Ramsay Arena"
+  },
+  "prizeMoney": 100000,
+  "leaderboard": {
+      "positions": ["661458e768864acb5314ec1d","661458e768864acb5314ec21","661458e768864acb5314ec2a","661458e768864acb5314ec30","661458e768864acb5314ec1e","661458e768864acb5314ec3a","661458e768864acb5314ec3c","661458e768864acb5314ec3d"],
+      "prizeMoneyBreakdown": [50000,20000,12000,8000,5000,2500,1500,1000]
+  },
+  "startDate": "2023-08-22",
+  "endDate": "2023-08-26"
+}

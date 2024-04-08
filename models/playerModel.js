@@ -20,26 +20,30 @@ const playerSchema = new Schema({
     min: 1,
     max: 100
   },
+  nationality: {
+    type: String,
+    required: true
+  },
   worldRanking: {
     type: Number
   },
   lifetimeEarnings: {
     type: Number,
-    required: true
+    default: 0
   },
   tournamentsPlayed: {
     type: [ObjectId],
-    ref: 'Tournament',
-    required: true,
-    validate: [arrayMinLengthOne, 'Player must have at least one tournament played']
+    ref: 'Tournament'
+    //required: true,
+    //validate: [arrayMinLengthOne, 'Player must have at least one tournament played']
   }
 }, {timestamps: true})
 
 // Validator function to ensure at least one element is in the array
 
-function arrayMinLengthOne(val) {
-  return val.length > 0;
-}
+// function arrayMinLengthOne(val) {
+//   return val.length > 0;
+// }
 
 // Create model with schema
 
