@@ -4,28 +4,36 @@ const router = express.Router()
 
 // Import performance Controller
 
-import { } from '../controllers/performanceController.js'
+import { getAllPerformances, getPerformanceById, getPerformancesByPlayerId, getPerformancesByTournamentId, createPerformance, updatePerformance, deletePerformance } from '../controllers/performanceController.js'
 
 // Define routes
 
 // Get all performances
 
-router.get('/', )
+router.get('/', getAllPerformances)
 
 // Get a performance by ID
 
-router.get('/:id', )
+router.get('/:id', getPerformanceById)
+
+// Get all performances by Player ID
+
+router.get('/player/:playerId', getPerformancesByPlayerId)
+
+// Get all performances by Tournament ID
+
+router.get('/tournament/:tournamentId', getPerformancesByTournamentId)
 
 // Create a new performance
 
-router.post('/', )
+router.post('/', createPerformance)
 
 // Update a performance by ID
 
-router.put('/:id', )
+router.put('/:id', updatePerformance)
 
 // Delete a performance by ID
 
-router.delete('/:id', )
+router.delete('/:id', deletePerformance)
 
 export default router

@@ -25,10 +25,10 @@ app.use(cors())
 // Routes
 
 app.use('/users', userRouter)
-app.use('./tournaments', tournamentRouter)
-app.use('./players', playerRouter)
-app.use('./performances', performanceRouter)
-app.use('./attendances', attendanceRouter)
+app.use('/tournaments', tournamentRouter)
+app.use('/players', playerRouter)
+app.use('/performances', performanceRouter)
+app.use('/attendances', attendanceRouter)
 
 // Initialize server
 

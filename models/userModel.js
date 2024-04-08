@@ -5,7 +5,7 @@ const Schema = mongoose.Schema
 // Define schema for use in model
 
 const userSchema = new Schema({
-  userName: {
+  username: {
     type: String,
     required: true
   },

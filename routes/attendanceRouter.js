@@ -2,30 +2,38 @@ import express from 'express'
 
 const router = express.Router()
 
-// Import attendance Controller
+// Import performance Controller
 
-import { } from '../controllers/attendanceController.js'
+import { getAllAttendances, getAttendanceById, getAttendancesByUserId, getAttendancesByTournamentId, createAttendance, updateAttendance, deleteAttendance } from '../controllers/attendanceController.js'
 
 // Define routes
 
-// Get all attendance
+// Get all attendances
 
-router.get('/', )
+router.get('/', getAllAttendances)
 
-// Get an attendance by ID
+// Get a attendance by ID
 
-router.get('/:id', )
+router.get('/:id', getAttendanceById)
 
-// Create a new attendance
+// Get all performances by Player ID
 
-router.post('/', )
+router.get('/user/:userId', getAttendancesByUserId)
 
-// Update an attendance by ID
+// Get all performances by Tournament ID
 
-router.put('/:id', )
+router.get('/tournament/:tournamentId', getAttendancesByTournamentId)
 
-// Delete an attendance by ID
+// Create a new performance
 
-router.delete('/:id', )
+router.post('/', createAttendance)
+
+// Update a performance by ID
+
+router.put('/:id', updateAttendance)
+
+// Delete a performance by ID
+
+router.delete('/:id', deleteAttendance)
 
 export default router

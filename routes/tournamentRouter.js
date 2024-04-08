@@ -4,28 +4,28 @@ const router = express.Router()
 
 // Import tournament Controller
 
-import { } from '../controllers/tournamentController.js'
+import { getAllTournaments, getTournamentByName, createTournament, updateTournament, deleteTournament } from '../controllers/tournamentController.js'
 
 // Define routes
 
 // Get all tournaments
 
-router.get('/', )
+router.get('/', getAllTournaments)
 
 // Get a tournament by name
 
-router.get('/:name', )
+router.get('/:name', getTournamentByName)
 
 // Create a new tournament
 
-router.post('/', )
+router.post('/', createTournament)
 
 // Update a tournament by ID
 
-router.put('/:id', )
+router.put('/:id', updateTournament)
 
 // Delete a tournament by ID
 
-router.delete('/:id', )
+router.delete('/:id', deleteTournament)
 
 export default router

@@ -6,8 +6,8 @@ export const getAllUsers = async (req, res) => {
   try {
     const users = await User.find({})
 
-    if (!users) {
-      res.status(404).json({
+    if (users.length === 0) {
+      return res.status(404).json({
         error: 'No users were found'
       })
     }
@@ -29,14 +29,14 @@ export const getUserById = async (req, res) => {
     const { id } = req.params
 
     if (!id) {
-      res.status(400).json({
+      return res.status(400).json({
         error: 'User ID must be provided'
       })
     }
-    const user = await User.find({_id: id})
+    const user = await User.findOne({ _id: id })
 
     if (!user) {
-      res.status(404).json({
+      return res.status(404).json({
         error: 'User not found'
       })
     }
@@ -58,7 +58,7 @@ export const createUser = async (req, res) => {
     const userData = req.body
 
     if (!userData) {
-      res.status(400).json({
+      return res.status(400).json({
         error: 'User data must be provided'
       })
     }
@@ -66,7 +66,7 @@ export const createUser = async (req, res) => {
     const userCreated = await User.create(userData)
 
     if (!userCreated) {
-      res.status(404).json({
+      return res.status(404).json({
         error: 'User not found'
       })
     }
@@ -90,13 +90,13 @@ export const updateUser = async (req, res) => {
     const userData = req.body
 
     if (!id) {
-      res.status(400).json({
+      return res.status(400).json({
         error: 'User ID must be provided'
       })
     }
 
     if (!userData) {
-      res.status(400).json({
+      return res.status(400).json({
         error: 'User data must be provided'
       })
     }
@@ -104,16 +104,16 @@ export const updateUser = async (req, res) => {
     const userToUpdate = await User.findOne({ _id : id})
 
     if (!userToUpdate) {
-      res.status(404).json({
+      return res.status(404).json({
         error: 'User was not able to be updated'
       })
     }
 
-    if (!userData.username) {
-      userData.username = userToUpdate.username
-    }
+    Object.keys(userData).forEach(key => {
+      userToUpdate[key] = userData[key]
+    })
 
-    if ()
+    const userUpdated = await userToUpdate.save()
 
     console.log(userUpdated)
     res.json(userUpdated)
@@ -132,10 +132,21 @@ export const deleteUser = async (req, res) => {
     const { id } = req.params
 
     if (!id) {
-      res.status(400).json({
+      return res.status(400).json({
         error: 'User ID must be provided'
       })
     }
+
+    const userDeleted = await User.deleteOne({ _id : id})
+
+    if (userDeleted.deletedCount === 0) {
+      return res.status(404).json({
+        error: 'User was not able to be deleted'
+      })
+    }
+
+    console.log(userDeleted)
+    res.json(userDeleted)
 
   } catch (error) {
     res.status(500).json({
