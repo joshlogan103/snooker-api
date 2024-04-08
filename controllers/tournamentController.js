@@ -114,10 +114,10 @@ export const updateTournament = async (req, res) => {
         tournamentToUpdate[key] = tournamentData[key]
     })
 
-    const tournamentUpdated = await tournamentToUpdate.save()
+    await tournamentToUpdate.save()
 
-    console.log(tournamentUpdated)
-    res.json(tournamentUpdated)
+    console.log(tournamentToUpdate)
+    res.json(tournamentToUpdate)
 
   } catch (error) {
     res.status(500).json({

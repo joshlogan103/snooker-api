@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 const ObjectId = mongoose.Types.ObjectId
 
-// Define sub-document schema for use in tournament schema
+// Define Leaderboard sub-document schema for use in tournament schema
 
 const leaderboardSchema = new Schema({
   positions: {
@@ -19,6 +19,23 @@ const leaderboardSchema = new Schema({
   }
 })
 
+// Define Location sub-document schema for use in tournament schema
+
+const locationSchema = new Schema({
+  county: {
+    type: String,
+    required: true
+  },
+  city: {
+    type: String,
+    required: true
+  },
+  venueName: {
+    type: String,
+    required: true
+  }
+})
+
 // Define top-level schema for use in model
 
 const tournamentSchema = new Schema({
@@ -27,7 +44,7 @@ const tournamentSchema = new Schema({
     required: true
   },
   location: {
-    type: String,
+    type: locationSchema,
     required: true
   },
   prizeMoney: {

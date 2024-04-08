@@ -33,7 +33,7 @@ export const getPerformanceById = async (req, res) => {
         error: 'Performance ID must be provided'
       })
     }
-    const performance = await Performance.findOne({ _id: id })
+    const performance = await Performance.findById(id)
 
     if (!performance) {
       return res.status(404).json({
@@ -173,10 +173,10 @@ export const updatePerformance = async (req, res) => {
       performanceToUpdate[key] = performanceData[key]
     })
 
-    const PerformanceUpdated = await PerformanceToUpdate.save()
+    await performanceToUpdate.save()
 
-    console.log(PerformanceUpdated)
-    res.json(PerformanceUpdated)
+    console.log(performanceToUpdate)
+    res.json(performanceToUpdate)
 
   } catch (error) {
     res.status(500).json({

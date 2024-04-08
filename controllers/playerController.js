@@ -114,10 +114,10 @@ export const updatePlayer = async (req, res) => {
       playerToUpdate[key] = playerData[key]
     })
 
-    const playerUpdated = await playerToUpdate.save()
+    await playerToUpdate.save()
 
-    console.log(playerUpdated)
-    res.json(playerUpdated)
+    console.log(playerToUpdate)
+    res.json(playerToUpdate)
 
   } catch (error) {
     res.status(500).json({

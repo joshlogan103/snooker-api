@@ -33,7 +33,7 @@ export const getAttendanceById = async (req, res) => {
         error: 'Attendance ID must be provided'
       })
     }
-    const attendance = await Attendance.findOne({ _id: id })
+    const attendance = await Attendance.findById(id)
 
     if (!attendance) {
       return res.status(404).json({
@@ -173,10 +173,10 @@ export const updateAttendance = async (req, res) => {
       attendanceToUpdate[key] = attendanceData[key]
     })
 
-    const attendanceUpdated = await attendanceToUpdate.save()
+    await attendanceToUpdate.save()
 
-    console.log(attendanceUpdated)
-    res.json(attendanceUpdated)
+    console.log(attendanceToUpdate)
+    res.json(attendanceToUpdate)
 
   } catch (error) {
     res.status(500).json({

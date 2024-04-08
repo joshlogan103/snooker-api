@@ -17,6 +17,12 @@ const userSchema = new Schema({
     type: Boolean,
     required: true,
     default: false
+  },
+  createdAt: {
+    type: Date,
+    required: true,
+    immutable: true,
+    default: () => Date.now()
   }
 })
 

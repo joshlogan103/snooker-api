@@ -33,7 +33,7 @@ export const getUserById = async (req, res) => {
         error: 'User ID must be provided'
       })
     }
-    const user = await User.findOne({ _id: id })
+    const user = await User.findById(id)
 
     if (!user) {
       return res.status(404).json({
@@ -113,10 +113,10 @@ export const updateUser = async (req, res) => {
       userToUpdate[key] = userData[key]
     })
 
-    const userUpdated = await userToUpdate.save()
+    await userToUpdate.save()
 
-    console.log(userUpdated)
-    res.json(userUpdated)
+    console.log(userToUpdate)
+    res.json(userToUpdate)
 
   } catch (error) {
     res.status(500).json({

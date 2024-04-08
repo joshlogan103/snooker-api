@@ -16,7 +16,9 @@ const playerSchema = new Schema({
   },
   age: {
     type: Number,
-    required: true
+    required: true,
+    min: 1,
+    max: 100
   },
   worldRanking: {
     type: Number
