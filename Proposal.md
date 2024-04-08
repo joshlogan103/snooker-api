@@ -2,7 +2,7 @@
 
 ## Project Description 
 
-I am building an application that allows users track Snooker players and tournaments. This application will be built on a MEN stack, and the database will contain collections of players, tournaments, users, and metadata on the relationships between these documents. Users will be able query players and tournaments, as well as create documents to track they're on attendence at tournaments. Admins will be able to perform full CRUD on the database and manage players, tournaments and users. This application will automate the creation of additional meta-data containing documents where relationships exist between the core set of collections.
+I am building an application that allows users to track Snooker players and tournaments. This application will be built on a MEN stack, and the database will contain collections of players, tournaments, and users. It will also contain metadata on the relationships between these documents. Users will be able query players and tournaments, as well as create documents to track they're own attendence at tournaments. Admins will be able to perform full CRUD on the database and manage players, tournaments and users. This application will automate the creation of additional meta-data containing documents where relationships exist between the core set of collections, such as player performance at a tournament.
 
 ## User Stories
 
@@ -45,11 +45,17 @@ For Admins:
 
 ## Front-end Wire Frames
 
+#### Home Page
+
 ![Home Page](./Images/Snooker%20API%20-%20Home%20Page.png)
 [View home page wireframe on Figma](https://www.figma.com/file/J4JhBwQdJ9wohDR4MFKtDm/Snooker-API---Home-Page?type=design&node-id=0-1&mode=design&t=Gj86L80CwUY1zzKY-0)
 
+#### User Profile
+
 ![User Profile](./Images/Snooker%20API%20-%20User%20Profile.png)
 [View user profile wireframe on Figma](https://www.figma.com/file/Be09dSuaPoV75e1VvB0SI8/Snooker-API---User-Profile?type=design&node-id=0-1&mode=design&t=IWsajMHuutBX5jYg-0)
+
+#### Admin View
 
 ![Admin View](./Images/Snooker%20API%20-%20Admin%20View.png)
 [View admin view wireframe on Figma](https://www.figma.com/file/03yDWXOqgcW1Z18OUOxryV/Snooker-API---Admin-View?type=design&node-id=0-1&mode=design&t=l2WsKWXsYZnchYMr-0)
