@@ -24,17 +24,17 @@ export const getAllTournaments = async (req, res) => {
 
 // Get a Tournament by Name
 
-export const getTournamentByName = async (req, res) => {
+export const getTournamentById = async (req, res) => {
   try {
-    const { name } = req.params
+    const { id } = req.params
 
-    if (!name) {
+    if (!id) {
       return res.status(400).json({
-        error: 'Tournament name must be provided'
+        error: 'Tournament ID must be provided'
       })
     }
 
-    const tournament = await Tournament.findOne({ name : name })
+    const tournament = await Tournament.findById(id)
 
     if (!tournament) {
       return res.status(404).json({

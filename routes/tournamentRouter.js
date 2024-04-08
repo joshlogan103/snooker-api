@@ -4,7 +4,7 @@ const router = express.Router()
 
 // Import tournament Controller
 
-import { getAllTournaments, getTournamentByName, createTournament, updateTournament, deleteTournament } from '../controllers/tournamentController.js'
+import { getAllTournaments, getTournamentById, createTournament, updateTournament, deleteTournament } from '../controllers/tournamentController.js'
 
 // Define routes
 
@@ -14,7 +14,7 @@ router.get('/', getAllTournaments)
 
 // Get a tournament by name
 
-router.get('/:name', getTournamentByName)
+router.get('/:id', getTournamentById)
 
 // Create a new tournament
 

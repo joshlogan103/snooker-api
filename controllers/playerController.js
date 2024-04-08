@@ -11,8 +11,9 @@ export const getAllPlayers = async (req, res) => {
         error: 'No players were found'
       })
     }
-
-    console.log(players)
+    players.forEach(player => {
+      console.log(player.id)
+    })
     res.json(players)
     
   } catch (error) {
@@ -24,17 +25,17 @@ export const getAllPlayers = async (req, res) => {
 
 // Get a player by Name
 
-export const getPlayerByName = async (req, res) => {
+export const getPlayerById = async (req, res) => {
   try {
-    const { name } = req.params
+    const { id } = req.params
 
-    if (!name) {
+    if (!id) {
       return res.status(400).json({
-        error: 'Player name must be provided'
+        error: 'Player id must be provided'
       })
     }
 
-    const player = await Player.findOne({ name : name })
+    const player = await Player.findById(id)
 
     if (!player) {
       return res.status(404).json({

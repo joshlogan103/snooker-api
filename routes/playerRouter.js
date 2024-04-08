@@ -4,7 +4,7 @@ const router = express.Router()
 
 // Import player Controller
 
-import { getAllPlayers, getPlayerByName, createPlayer, updatePlayer, deletePlayer } from '../controllers/playerController.js'
+import { getAllPlayers, getPlayerById, createPlayer, updatePlayer, deletePlayer } from '../controllers/playerController.js'
 
 // Define routes
 
@@ -14,7 +14,7 @@ router.get('/', getAllPlayers)
 
 // Get a player by name
 
-router.get('/:name', getPlayerByName)
+router.get('/:id', getPlayerById)
 
 // Create a new player
 
