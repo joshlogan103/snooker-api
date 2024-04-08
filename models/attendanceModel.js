@@ -5,7 +5,7 @@ const ObjectId = mongoose.Types.ObjectId
 
 // Define schema for use in model
 
-const attendeeSchema = new Schema({
+const attendanceSchema = new Schema({
   user: {
     type: {
       type: ObjectId,
@@ -31,8 +31,8 @@ const attendeeSchema = new Schema({
 
 // Create model with schema
 
-const Attendee = mongoose.model('Attendee', attendeeSchema)
+const Attendance = mongoose.model('Attendance', attendanceSchema)
 
 // Export model to be used in Controllers
 
-export default Attendee
+export default Attendance

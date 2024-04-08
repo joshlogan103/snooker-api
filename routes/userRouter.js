@@ -4,7 +4,7 @@ const router = express.Router()
 
 // Import user Controller
 
-
+import { } from '../controllers/userController.js'
 
 // Define routes
 
