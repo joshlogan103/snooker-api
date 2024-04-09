@@ -128,7 +128,7 @@ export const updateTournament = async (req, res) => {
 
     await tournamentToUpdate.save()
 
-    if (tournamentData.leaderboard.positions || tournamentData.leaderboard.prizeMoneyBreakdown) {
+    if (tournamentData.leaderboard) {
       const deletedPerformances = await deletePerformancesForTournament(id)
       console.log(deletedPerformances)
 
