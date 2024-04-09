@@ -1,5 +1,5 @@
 import Tournament from '../models/tournamentModel.js'
-import Performance from '../models/performanceModel.js'
+import { createPerformancesFromTournament, deletePerformancesForTournament } from '../services/tournamentServices.js'
 
 // Get all Tournaments
 
@@ -73,24 +73,20 @@ export const createTournament = async (req, res) => {
       })
     }
 
-    const allNewPerformances = [];
-
     if (Array.isArray(tournamentCreated)) {
       tournamentCreated.map( async (tourney) => {
         const newPerformances = await createPerformancesFromTournament(tourney)
-        allNewPerformances.push(newPerformances)
+        console.log(newPerformances)
       }) 
     } else {
       const newPerformances = await createPerformancesFromTournament(tournamentCreated)
-        allNewPerformances.push(newPerformances)
+      console.log(newPerformances)
     }
 
     console.log(tournamentCreated)
+    
 
-    res.json({
-      tournament: tournamentCreated,
-      performancesMessage: allNewPerformances
-    })
+    res.json(tournamentCreated)
 
   } catch (error) {
     res.status(500).json({
@@ -132,6 +128,14 @@ export const updateTournament = async (req, res) => {
 
     await tournamentToUpdate.save()
 
+    if (tournamentData.leaderboard.positions || tournamentData.leaderboard.prizeMoneyBreakdown) {
+      const deletedPerformances = await deletePerformancesForTournament(id)
+      console.log(deletedPerformances)
+
+      const newPerformances = await createPerformancesFromTournament(tournamentToUpdate) 
+      console.log(newPerformances)
+    }
+
     console.log(tournamentToUpdate)
     res.json(tournamentToUpdate)
 
@@ -157,10 +161,12 @@ export const deleteTournament = async (req, res) => {
     const tournamentDeleted = await Tournament.deleteOne({ _id : id})
 
     if (tournamentDeleted.deletedCount === 0) {
-      return res.status(404).json({
+      return res.status(400).json({
         error: 'Tournament was not able to be deleted'
       })
     }
+
+    await deletePerformancesForTournament(id)
 
     console.log(tournamentDeleted)
     res.json(tournamentDeleted)
@@ -169,30 +175,5 @@ export const deleteTournament = async (req, res) => {
     res.status(500).json({
       error: `There was an error ${error}`
     })
-  }
-}
-
-const createPerformancesFromTournament = async (tourney) => {
-  console.log('ready to create performance docs')
-
-  const positions = tourney.leaderboard.positions
-  const prizeMoneyBreakdown = tourney.leaderboard.prizeMoneyBreakdown
-
-  const performancePromises = positions.map( async (playerId, index) => {
-    const prizeEarned = prizeMoneyBreakdown[index]
-
-    return Performance.create({
-      playerId: playerId,
-      tournamentId: tourney._id,
-      position: index + 1,
-      prizeEarned: prizeEarned
-    })
-  })
-
-  try {
-    await Promise.all(performancePromises)
-    console.log(`All performance docs created for ${tourney.name}`)
-  } catch (error) {
-    console.log(error)
   }
 }
