@@ -48,7 +48,7 @@ export const updatePlayerParticipation = async (tourney) => {
       player.tournamentsPlayed.push(tourney._id)
       await player.save()
     })
-    
+
   } catch (error) {
     console.log(error)
   }
@@ -62,7 +62,7 @@ export const removePlayerParticipation = async (tourneyId) => {
 
     if (originalPlayers.length > 0) {
       originalPlayers.map( async (player) => {
-        const index = player.tournamentsPlayed.findIndex(tourneyId)
+        const index = player.tournamentsPlayed.indexOf(tourneyId)
         player.tournamentsPlayed.splice(index, 1)
         await player.save()
       })

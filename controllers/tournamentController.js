@@ -179,6 +179,7 @@ export const deleteTournament = async (req, res) => {
     }
 
     await deletePerformancesForTournament(id)
+    await removePlayerParticipation(id)
 
     console.log(tournamentDeleted)
     res.json(tournamentDeleted)
