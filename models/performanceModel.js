@@ -6,12 +6,12 @@ const ObjectId = mongoose.Types.ObjectId
 // Define schema for use in model
 
 const performanceSchema = new Schema({
-  player: {
+  playerId: {
     type: ObjectId,
     ref: 'Player',
     required: true
   },
-  tournament: {
+  tournamentId: {
     type: ObjectId,
     ref: 'Tournament',
     required: true

@@ -1,15 +1,257 @@
-{
-  "name": "Nottingham Classic",
-  "location": {
-      "country": "United Kingdom",
-      "city": "Nottingham",
-      "venueName": "Ramsay Arena"
+[
+  {
+      "name": "Nottingham Classic",
+      "location": {
+          "country": "United Kingdom",
+          "city": "Nottingham",
+          "venueName": "Ramsay Arena"
+      },
+      "prizeMoney": 100000,
+      "leaderboard": {
+          "positions": [
+              "661458e768864acb5314ec1d",
+              "661458e768864acb5314ec21",
+              "661458e768864acb5314ec2a",
+              "661458e768864acb5314ec30",
+              "661458e768864acb5314ec1e",
+              "661458e768864acb5314ec3a",
+              "661458e768864acb5314ec3c",
+              "661458e768864acb5314ec3d"
+          ],
+          "prizeMoneyBreakdown": [
+              50000,
+              20000,
+              12000,
+              8000,
+              5000,
+              2500,
+              1500,
+              1000
+          ]
+      },
+      "startDate": "2023-08-22T00:00:00.000Z",
+      "endDate": "2023-08-26T00:00:00.000Z"
   },
-  "prizeMoney": 100000,
-  "leaderboard": {
-      "positions": ["661458e768864acb5314ec1d","661458e768864acb5314ec21","661458e768864acb5314ec2a","661458e768864acb5314ec30","661458e768864acb5314ec1e","661458e768864acb5314ec3a","661458e768864acb5314ec3c","661458e768864acb5314ec3d"],
-      "prizeMoneyBreakdown": [50000,20000,12000,8000,5000,2500,1500,1000]
+  {
+      "name": "Dublin Championship",
+      "location": {
+          "country": "Ireland",
+          "city": "Dublin",
+          "venueName": "Eire Landing"
+      },
+      "prizeMoney": 120000,
+      "leaderboard": {
+          "positions": [
+              "661458e768864acb5314ec1d",
+              "661458e768864acb5314ec2e",
+              "661458e768864acb5314ec21",
+              "661458e768864acb5314ec2a",
+              "661458e768864acb5314ec1f",
+              "661458e768864acb5314ec1e",
+              "661458e768864acb5314ec30",
+              "661458e768864acb5314ec3a"
+          ],
+          "prizeMoneyBreakdown": [
+              60000,
+              30000,
+              12000,
+              8000,
+              5000,
+              2500,
+              1500,
+              1000
+          ]
+      },
+      "startDate": "2023-09-14T00:00:00.000Z",
+      "endDate": "2023-09-18T00:00:00.000Z"
   },
-  "startDate": "2023-08-22",
-  "endDate": "2023-08-26"
-}
+  {
+      "name": "The Grand Cue Classic",
+      "location": {
+          "country": "UK",
+          "city": "London",
+          "venueName": "Snooker Hall Supreme"
+      },
+      "prizeMoney": 100000,
+      "leaderboard": {
+          "positions": [
+              "661458e768864acb5314ec1e",
+              "661458e768864acb5314ec1f",
+              "661458e768864acb5314ec20",
+              "661458e768864acb5314ec1d",
+              "661458e768864acb5314ec21",
+              "661458e768864acb5314ec24",
+              "661458e768864acb5314ec25",
+              "661458e768864acb5314ec28"
+          ],
+          "prizeMoneyBreakdown": [
+              25000,
+              18000,
+              12000,
+              10000,
+              8000,
+              6000,
+              4000,
+              2000
+          ]
+      },
+      "startDate": "2023-05-01T00:00:00.000Z",
+      "endDate": "2023-05-08T00:00:00.000Z"
+  },
+  {
+      "name": "Cue Masters Championship",
+      "location": {
+          "country": "USA",
+          "city": "Las Vegas",
+          "venueName": "Billiard Blitz Arena"
+      },
+      "prizeMoney": 100000,
+      "leaderboard": {
+          "positions": [
+              "661458e768864acb5314ec27",
+              "661458e768864acb5314ec26",
+              "661458e768864acb5314ec2b",
+              "661458e768864acb5314ec2a",
+              "661458e768864acb5314ec2c",
+              "661458e768864acb5314ec29",
+              "661458e768864acb5314ec2d",
+              "661458e768864acb5314ec2e",
+              "661458e768864acb5314ec2f",
+              "661458e768864acb5314ec31"
+          ],
+          "prizeMoneyBreakdown": [
+              20000,
+              15000,
+              12500,
+              10000,
+              9000,
+              8000,
+              7000,
+              6000,
+              5000,
+              4000
+          ]
+      },
+      "startDate": "2023-06-15T00:00:00.000Z",
+      "endDate": "2023-06-22T00:00:00.000Z"
+  },
+  {
+      "name": "The Snooker Spectacular",
+      "location": {
+          "country": "China",
+          "city": "Beijing",
+          "venueName": "Dragon's Lair Snooker Club"
+      },
+      "prizeMoney": 100000,
+      "leaderboard": {
+          "positions": [
+              "661458e768864acb5314ec30",
+              "661458e768864acb5314ec32",
+              "661458e768864acb5314ec33",
+              "661458e768864acb5314ec34",
+              "661458e768864acb5314ec35",
+              "661458e768864acb5314ec37",
+              "661458e768864acb5314ec36",
+              "661458e768864acb5314ec38",
+              "661458e768864acb5314ec39",
+              "661458e768864acb5314ec3c",
+              "661458e768864acb5314ec3b",
+              "661458e768864acb5314ec3a"
+          ],
+          "prizeMoneyBreakdown": [
+              17000,
+              14000,
+              12000,
+              10000,
+              9000,
+              8000,
+              7000,
+              6000,
+              5000,
+              4000,
+              3000,
+              2000
+          ]
+      },
+      "startDate": "2023-07-20T00:00:00.000Z",
+      "endDate": "2023-07-27T00:00:00.000Z"
+  },
+  {
+      "name": "Ultimate Snooker Showdown",
+      "location": {
+          "country": "Germany",
+          "city": "Berlin",
+          "venueName": "Eight Ball Emporium"
+      },
+      "prizeMoney": 100000,
+      "leaderboard": {
+          "positions": [
+              "661458e768864acb5314ec3d",
+              "661458e768864acb5314ec23",
+              "661458e768864acb5314ec22",
+              "661458e768864acb5314ec40",
+              "661458e768864acb5314ec41",
+              "661458e768864acb5314ec43",
+              "661458e768864acb5314ec42",
+              "661458e768864acb5314ec44",
+              "661458e768864acb5314ec3f",
+              "661458e768864acb5314ec3e",
+              "661458e768864acb5314ec31",
+              "661458e768864acb5314ec30",
+              "661458e768864acb5314ec32",
+              "661458e768864acb5314ec33"
+          ],
+          "prizeMoneyBreakdown": [
+              15000,
+              12500,
+              11000,
+              9500,
+              8500,
+              7500,
+              6500,
+              5500,
+              4500,
+              3500,
+              2500,
+              1500,
+              1000,
+              500
+          ]
+      },
+      "startDate": "2023-08-05T00:00:00.000Z",
+      "endDate": "2023-08-12T00:00:00.000Z"
+  },
+  {
+      "name": "Billiard Bonanza",
+      "location": {
+          "country": "Australia",
+          "city": "Sydney",
+          "venueName": "Sydney Snooker Arena"
+      },
+      "prizeMoney": 100000,
+      "leaderboard": {
+          "positions": [
+              "661458e768864acb5314ec34",
+              "661458e768864acb5314ec35",
+              "661458e768864acb5314ec37",
+              "661458e768864acb5314ec36",
+              "661458e768864acb5314ec38",
+              "661458e768864acb5314ec39",
+              "661458e768864acb5314ec3c",
+              "661458e768864acb5314ec3b"
+          ],
+          "prizeMoneyBreakdown": [
+              25000,
+              18000,
+              12000,
+              10000,
+              8000,
+              6000,
+              4000,
+              2000
+          ]
+      },
+      "startDate": "2023-09-10T00:00:00.000Z",
+      "endDate": "2023-09-17T00:00:00.000Z"
+  }
+]
