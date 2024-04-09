@@ -1,21 +1,18 @@
 import 'dotenv/config.js'
 import jwt from 'jsonwebtoken'
 
-const isUserLoggedIn = async (req, res, next) => {
-  try {
-    const { token = false } = req.cookies
-    if (token) {
-      const payload = await jwt.verify(token, process.env.SECRET)
-      req.payload = payload
-      next()
-    } else {
-      throw "Not logged in"
-    }
-  } catch (error) {
-    res.status(400).json({
-      'error': error
+const verifyAuth = (req, res, next) => {
+  const tokenHeader = req.headers.authization
+  const token = tokenHeader.substring(7)
+  const validToken = jwt.verify(token, process.env.SECRET)
+  
+  if (!validToken || token.exp > new Date()) {
+    res.status(498).json({
+      tokenError: `Invalid or expired token. Re-authentication required`
     })
   }
+  
+  next()
 }
 
-export default isUserLoggedIn
+export default verifyAuth

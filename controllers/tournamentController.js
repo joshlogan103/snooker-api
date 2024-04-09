@@ -1,5 +1,5 @@
 import Tournament from '../models/tournamentModel.js'
-import { createPerformancesFromTournament, deletePerformancesForTournament } from '../services/tournamentServices.js'
+import { createPerformancesFromTournament, deletePerformancesForTournament, updatePlayerParticipation, removePlayerParticipation } from '../services/tournamentServices.js'
 
 // Get all Tournaments
 
@@ -77,10 +77,16 @@ export const createTournament = async (req, res) => {
       tournamentCreated.map( async (tourney) => {
         const newPerformances = await createPerformancesFromTournament(tourney)
         console.log(newPerformances)
+
+        const updatedParticipation = await updatePlayerParticipation(tourney)
+        console.log(updatedParticipation)
       }) 
     } else {
       const newPerformances = await createPerformancesFromTournament(tournamentCreated)
       console.log(newPerformances)
+
+      const updatedParticipation = await updatePlayerParticipation(tournamentCreated)
+      console.log(updatedParticipation)
     }
 
     console.log(tournamentCreated)
@@ -134,6 +140,12 @@ export const updateTournament = async (req, res) => {
 
       const newPerformances = await createPerformancesFromTournament(tournamentToUpdate) 
       console.log(newPerformances)
+
+      const removedParticipation = await removePlayerParticipation(id)
+      console.log(removedParticipation)
+
+      const updatedParticipation = await updatePlayerParticipation(tournamentToUpdate)
+      console.log(updatedParticipation)
     }
 
     console.log(tournamentToUpdate)
