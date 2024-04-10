@@ -11,9 +11,7 @@ export const getAllPlayers = async (req, res) => {
         error: 'No players were found'
       })
     }
-    players.forEach(player => {
-      console.log(player.id)
-    })
+
     res.json(players)
     
   } catch (error) {

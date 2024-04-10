@@ -54,7 +54,6 @@ performanceSchema.post('save', async function (doc) {
 
 performanceSchema.post('findOneAndDelete', async function(doc) {
 
-  console.log('trying to do math')
     const { playerId, prizeEarned } = doc
     const playerToUpdate = await Player.findById(playerId)
 
