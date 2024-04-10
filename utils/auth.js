@@ -1,5 +1,6 @@
 import 'dotenv/config.js'
 import jwt from 'jsonwebtoken'
+import User from '../models/userModel.js'
 
 const verifyAuth = (req, res, next) => {
   const tokenHeader = req.headers.authorization
@@ -15,4 +16,26 @@ const verifyAuth = (req, res, next) => {
   next()
 }
 
-export default verifyAuth
+const verifyAdmin = async (req, res, next) => {
+  const { id } = req.body
+  const user = await User.findById(id)
+
+  if (!user) [
+    res.status(400).json({
+      error: 'User not found'
+    })
+  ]
+
+  if (!user.isAdmin) {
+    res.status(401).json({
+      error: `User ${user.username} is not an admin`
+    })
+  }
+
+  next()
+}
+
+export {
+  verifyAuth,
+  verifyAdmin
+}
