@@ -6,11 +6,13 @@ const router = express.Router()
 
 import { getAllPlayers, getPlayerById, createPlayer, updatePlayer, deletePlayer } from '../controllers/playerController.js'
 
+import { verifyAuth, verifyAdmin } from '../utils/auth.js'
+
 // Define routes
 
 // Get all players
 
-router.get('/', getAllPlayers)
+router.get('/', verifyAuth, getAllPlayers)
 
 // Get a player by name
 

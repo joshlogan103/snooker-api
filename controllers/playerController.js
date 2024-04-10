@@ -51,6 +51,36 @@ export const getPlayerById = async (req, res) => {
   }
 }
 
+// Get player by name
+
+export const getPlayerByName = async (req, res) => {
+  try {
+    const { fullName } = req.params
+
+    if (!fullName) {
+      return res.status(400).json({
+        error: 'Player name must be provided'
+      })
+    }
+
+    const player = await Player.findOne({ fullName: fullName })
+
+    if (!player) {
+      return res.status(404).json({
+        error: 'Player not found'
+      })
+    }
+
+    console.log(player)
+    res.json(player)
+    
+  } catch (error) {
+    res.status(500).json({
+      error: `There was an error ${error}`
+    })
+  }
+}
+
 // Create a new player
 
 export const createPlayer = async (req, res) => {

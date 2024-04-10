@@ -1,13 +1,19 @@
 import 'dotenv/config.js'
 import jwt from 'jsonwebtoken'
-import User from '../models/userModel.js'
 
 const verifyAuth = (req, res, next) => {
   const tokenHeader = req.headers.authorization
-  const token = tokenHeader.substring(7)
-  const validToken = jwt.verify(token, process.env.SECRET)
+  const token = tokenHeader && tokenHeader.substring(7)
 
-  if (!validToken || token.exp > new Date()) {
+  if (token == null) {
+    return res.status(401).json({
+      error: 'Authorization token required'
+    })
+  }
+
+  const validToken = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET)
+
+  if (!validToken || token.exp < new Date()) {
     res.status(498).json({
       tokenError: `Invalid or expired token. Re-authentication required`
     })
@@ -17,18 +23,9 @@ const verifyAuth = (req, res, next) => {
 }
 
 const verifyAdmin = async (req, res, next) => {
-  const { id } = req.body
-  const user = await User.findById(id)
-
-  if (!user) [
-    res.status(400).json({
-      error: 'User not found'
-    })
-  ]
-
-  if (!user.isAdmin) {
-    res.status(401).json({
-      error: `User ${user.username} is not an admin`
+  if (!req.user.isAdmin) {
+    res.status(403).json({
+      error: `User ${req.user.username} is not an admin`
     })
   }
 

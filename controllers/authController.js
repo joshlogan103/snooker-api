@@ -3,12 +3,12 @@ import bcrypt from 'bcrypt'
 
 import User from '../models/userModel.js'
 
-const SECRET = process.env.SECRET
+const { ACCESS_TOKEN_SECRET } = process.env
 
 export const signin = async (req, res) => {
   try {
     const { username, password } = req.body
-    const user = await User.find({ username : username })
+    const user = await User.findOne({ username : username })
     const passwordValid = await bcrypt.compare(password, user.password)
 
     if (!passwordValid) {
@@ -17,14 +17,16 @@ export const signin = async (req, res) => {
       })
     }
 
-    const token = jwt.sign(
+    const accessToken = jwt.sign(
       { username: username },
-      SECRET,
+      ACCESS_TOKEN_SECRET,
       { expiresIn: '2d'}
     )
 
+    res.cookie('jwt', accessToken)
+
     res.json({
-      token: token
+      accessToken: accessToken
     })
 
   } catch (error) {

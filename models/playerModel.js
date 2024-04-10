@@ -14,6 +14,9 @@ const playerSchema = new Schema({
     type: String,
     required: true
   },
+  fullName: {
+    type: String
+  },
   age: {
     type: Number,
     required: true,
@@ -39,11 +42,13 @@ const playerSchema = new Schema({
   }
 }, {timestamps: true})
 
-// Validator function to ensure at least one element is in the array
+// Pre/Post functions
 
-// function arrayMinLengthOne(val) {
-//   return val.length > 0;
-// }
+// Pre save, concatenate player's first and last name to full name field
+
+playerSchema.pre('save', function() {
+  this.fullName = this.firstName + ' ' + this.lastName
+})
 
 // Create model with schema
 
