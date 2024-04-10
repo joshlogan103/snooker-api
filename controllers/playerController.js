@@ -139,7 +139,7 @@ export const deletePlayer = async (req, res) => {
       })
     }
 
-    const playerDeleted = await Player.deleteOne({ _id : id})
+    const playerDeleted = await Player.findByIdAndDelete(id)
 
     if (playerDeleted.deletedCount === 0) {
       return res.status(404).json({

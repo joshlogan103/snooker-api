@@ -134,7 +134,6 @@ export const createPerformance = async (req, res) => {
     console.log(performanceCreated)
     res.json(performanceCreated)
 
-
   } catch (error) {
     res.status(500).json({
       error: `There was an error ${error}`
@@ -197,7 +196,7 @@ export const deletePerformance = async (req, res) => {
       })
     }
 
-    const performanceDeleted = await Performance.deleteOne({ _id : id})
+    const performanceDeleted = await Performance.findByIdAndDelete(id)
 
     if (performanceDeleted.deletedCount === 0) {
       return res.status(404).json({

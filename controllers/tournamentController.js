@@ -170,7 +170,7 @@ export const deleteTournament = async (req, res) => {
       })
     }
 
-    const tournamentDeleted = await Tournament.deleteOne({ _id : id})
+    const tournamentDeleted = await Tournament.findByIdAndDelete(id)
 
     if (tournamentDeleted.deletedCount === 0) {
       return res.status(400).json({

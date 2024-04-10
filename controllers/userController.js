@@ -137,7 +137,7 @@ export const deleteUser = async (req, res) => {
       })
     }
 
-    const userDeleted = await User.deleteOne({ _id : id})
+    const userDeleted = await User.findByIdAndDelete(id)
 
     if (userDeleted.deletedCount === 0) {
       return res.status(404).json({

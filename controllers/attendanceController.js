@@ -197,7 +197,7 @@ export const deleteAttendance = async (req, res) => {
       })
     }
 
-    const attendanceDeleted = await Attendance.deleteOne({ _id : id})
+    const attendanceDeleted = await Attendance.findByIdAndDelete(id)
 
     if (attendanceDeleted.deletedCount === 0) {
       return res.status(404).json({

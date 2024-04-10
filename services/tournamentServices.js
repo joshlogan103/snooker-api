@@ -32,7 +32,15 @@ export const createPerformancesFromTournament = async (tourney) => {
 
 export const deletePerformancesForTournament = async (tourneyId) => {
   try {
-    await Performance.deleteMany({ tournamentId : tourneyId })
+    const performanceIdsArray = await Performance.find({ tournamentId : tourneyId })
+    console.log(performanceIdsArray)
+
+    if (performanceIdsArray) {
+      performanceIdsArray.map( async (performance) => {
+        await Performance.findByIdAndDelete(performance._id)
+      })
+    }
+
   } catch (error) {
     console.log(error)
   }
