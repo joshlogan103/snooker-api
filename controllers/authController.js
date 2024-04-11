@@ -8,7 +8,21 @@ const { ACCESS_TOKEN_SECRET } = process.env
 export const signin = async (req, res) => {
   try {
     const { username, password } = req.body
+
+    if (!username || !password) {
+      return res.status(400).json({
+        error: 'Username and Password must be provided'
+      })
+    }
+
     const user = await User.findOne({ username : username })
+
+    if (!user) {
+      return res.status(404).json({
+        error: 'User not found'
+      })
+    }
+
     const passwordValid = await bcrypt.compare(password, user.password)
 
     if (!passwordValid) {
@@ -30,14 +44,15 @@ export const signin = async (req, res) => {
     })
 
   } catch (error) {
-    console.error(error)
+    res.status(500).json({
+      error: `There was an error: ${error}`
+    })
   }
 }
 
 export const signup = async (req, res) => {
   try {
     const userData = req.body
-    userData.password = await bcrypt.hash(userData.password, 8)
     const user = await User.create(userData)
 
     if (!user) {
@@ -51,6 +66,8 @@ export const signup = async (req, res) => {
     })
 
   } catch (error) {
-    console.error(error)
+    res.status(500).json({
+      error: `There was an error: ${error}`
+    })
   }
 }
