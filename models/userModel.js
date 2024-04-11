@@ -27,7 +27,7 @@ const userSchema = new Schema({
 
 // Check password meets requirements prior to save
 
-userSchema.pre('save', async function () {
+userSchema.pre('save', async function (next) {
   const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
   if (this.isModified('password')) {

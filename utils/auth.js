@@ -26,7 +26,6 @@ const verifyAdmin = async (req, res, next) => {
       error: `User ${req.user.username} is not an admin`
     })
   }
-
   next()
 }
 
