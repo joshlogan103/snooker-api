@@ -2,11 +2,10 @@ import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 
 import User from '../models/userModel.js'
-import { verifyAuth, verifyAdmin } from '../utils/auth.js'
 
 const { ACCESS_TOKEN_SECRET } = process.env
 
-export const signin = async (req, res) => {
+export const login = async (req, res) => {
   try {
     const { username, password } = req.body
 
@@ -66,6 +65,16 @@ export const signup = async (req, res) => {
       message: `User ${user.username} was successfully created`
     })
 
+  } catch (error) {
+    res.status(500).json({
+      error: `There was an error: ${error}`
+    })
+  }
+}
+
+export const verifyLoggedIn = async (req, res) => {
+  try {
+    res.json(true)
   } catch (error) {
     res.status(500).json({
       error: `There was an error: ${error}`

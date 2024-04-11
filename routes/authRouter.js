@@ -4,16 +4,20 @@ const router = express.Router()
 
 //Import Auth controller
 
-import { signin, signup, validateAdmin } from '../controllers/authController.js'
+import { login, signup, validateAdmin, verifyLoggedIn } from '../controllers/authController.js'
 import { verifyAuth, verifyAdmin } from '../utils/auth.js'
 
-// Allow a user to signin
+// Allow a user to login
 
-router.post('/signin', signin)
+router.post('/login', login)
 
 // Allow a user to signup
 
 router.post('/signup', signup)
+
+// Verify a user is logged in
+
+router.post('/verifyLoggedIn', verifyAuth, verifyLoggedIn)
 
 // Verify a user is an admin to reach admin portal
 
