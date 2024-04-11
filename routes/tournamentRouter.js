@@ -6,6 +6,10 @@ const router = express.Router()
 
 import { getAllTournaments, getTournamentById, createTournament, updateTournament, deleteTournament } from '../controllers/tournamentController.js'
 
+// Import Auth Controller
+
+import { verifyAuth, verifyAdmin } from '../utils/auth.js'
+
 // Define routes
 
 // Get all tournaments
@@ -18,14 +22,14 @@ router.get('/:id', getTournamentById)
 
 // Create a new tournament
 
-router.post('/', createTournament)
+router.post('/', verifyAuth, verifyAdmin, createTournament)
 
 // Update a tournament by ID
 
-router.put('/:id', updateTournament)
+router.put('/:id', verifyAuth, verifyAdmin, updateTournament)
 
 // Delete a tournament by ID
 
-router.delete('/:id', deleteTournament)
+router.delete('/:id', verifyAuth, verifyAdmin, deleteTournament)
 
 export default router

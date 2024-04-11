@@ -12,13 +12,13 @@ export const signin = async (req, res) => {
     const passwordValid = await bcrypt.compare(password, user.password)
 
     if (!passwordValid) {
-      res.status(401).json({
+      return res.status(401).json({
         error: 'Incorrect Password'
       })
     }
 
     const accessToken = jwt.sign(
-      { username: username },
+      {username: username, isAdmin: user.isAdmin},
       ACCESS_TOKEN_SECRET,
       { expiresIn: '2d'}
     )
@@ -41,7 +41,7 @@ export const signup = async (req, res) => {
     const user = await User.create(userData)
 
     if (!user) {
-      res.status(400).json({
+      return res.status(400).json({
         error: 'User was not able to be created'
       })
     }

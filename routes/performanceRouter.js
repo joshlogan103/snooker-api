@@ -2,9 +2,13 @@ import express from 'express'
 
 const router = express.Router()
 
-// Import performance Controller
+// Import Performance Controller
 
 import { getAllPerformances, getPerformanceById, getPerformancesByPlayerId, getPerformancesByTournamentId, createPerformance, updatePerformance, deletePerformance } from '../controllers/performanceController.js'
+
+// Import Auth Controller
+
+import { verifyAuth, verifyAdmin } from '../utils/auth.js'
 
 // Define routes
 
@@ -26,14 +30,14 @@ router.get('/tournament/:tournamentId', getPerformancesByTournamentId)
 
 // Create a new performance
 
-router.post('/', createPerformance)
+router.post('/', verifyAuth, verifyAdmin, createPerformance)
 
 // Update a performance by ID
 
-router.put('/:id', updatePerformance)
+router.put('/:id', verifyAuth, verifyAdmin, updatePerformance)
 
 // Delete a performance by ID
 
-router.delete('/:id', deletePerformance)
+router.delete('/:id', verifyAuth, verifyAdmin, deletePerformance)
 
 export default router

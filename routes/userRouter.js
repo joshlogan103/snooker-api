@@ -6,27 +6,31 @@ const router = express.Router()
 
 import { getAllUsers, getUserById, createUser, updateUser, deleteUser } from '../controllers/userController.js'
 
+// Import Auth Controller
+
+import { verifyAuth, verifyAdmin } from '../utils/auth.js'
+
 // Define routes
 
 // Get all users
 
-router.get('/', getAllUsers)
+router.get('/', verifyAuth, verifyAdmin, getAllUsers)
 
 // Get a user by ID
 
-router.get('/:id', getUserById)
+router.get('/:id', verifyAuth, verifyAdmin, getUserById)
 
 // Create a new user
 
-router.post('/', createUser)
+router.post('/', verifyAuth, verifyAdmin, createUser)
 
 // Update a user by ID
 
-router.put('/:id', updateUser)
+router.put('/:id', verifyAuth, verifyAdmin, updateUser)
 
 // Delete a user by ID
 
-router.delete('/:id', deleteUser)
+router.delete('/:id', verifyAuth, verifyAdmin, deleteUser)
 
 export default router
 
