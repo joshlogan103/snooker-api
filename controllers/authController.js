@@ -37,7 +37,7 @@ export const login = async (req, res) => {
       { expiresIn: '2d'}
     )
 
-    res.cookie('jwt', accessToken)
+    //res.cookie('jwt', accessToken)
 
     res.json({
       accessToken: accessToken
