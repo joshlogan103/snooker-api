@@ -1,9 +1,5 @@
 import mongoose from 'mongoose'
 
-// Import Performance model for use in tournament post save functions
-
-import Performance from './performanceModel.js'
-
 const Schema = mongoose.Schema
 const ObjectId = mongoose.Types.ObjectId
 

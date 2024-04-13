@@ -107,6 +107,7 @@ export const updateTournament = async (req, res) => {
   try {
     const { id } = req.params
     const tournamentData = req.body
+    console.log(tournamentData)
 
     if (!id) {
       return res.status(400).json({
@@ -120,16 +121,23 @@ export const updateTournament = async (req, res) => {
       })
     }
 
-    const tournamentToUpdate = await Tournament.findOne({ _id : id})
+    const tournamentToUpdate = await Tournament.findById(id)
 
     if (!tournamentToUpdate) {
       return res.status(404).json({
-        error: 'Tournament was not able to be updated'
+        error: 'Tournament was not found'
       })
     }
 
-    Object.keys(tournamentData).forEach(key => {
-        tournamentToUpdate[key] = tournamentData[key]
+    Object.entries(tournamentData).forEach(([key, value]) => {
+      if (key === 'location' || key === 'leaderboard') {
+        Object.entries(value).forEach(([childKey, childValue]) => {
+          tournamentToUpdate[key][childKey] = childValue
+          console.log(tournamentToUpdate[key][childKey])
+        })
+      } else {
+        tournamentToUpdate[key] = value
+      }
     })
 
     await tournamentToUpdate.save()

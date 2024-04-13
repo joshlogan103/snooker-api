@@ -55,7 +55,7 @@ export const getPlayerById = async (req, res) => {
 
 export const getPlayerByName = async (req, res) => {
   try {
-    const { fullName } = req.params
+    let { fullName } = req.params
 
     if (!fullName) {
       return res.status(400).json({
@@ -63,6 +63,7 @@ export const getPlayerByName = async (req, res) => {
       })
     }
 
+    fullName = fullName.replace(/_/g, ' ')
     const player = await Player.findOne({ fullName: fullName })
 
     if (!player) {
@@ -135,7 +136,7 @@ export const updatePlayer = async (req, res) => {
 
     if (!playerToUpdate) {
       return res.status(404).json({
-        error: 'Player was not able to be updated'
+        error: 'Player not found'
       })
     }
 
