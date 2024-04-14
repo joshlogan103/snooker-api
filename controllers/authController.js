@@ -32,7 +32,7 @@ export const login = async (req, res) => {
     }
 
     const accessToken = jwt.sign(
-      {username: username, isAdmin: user.isAdmin},
+      {userId: user._id, username: username, isAdmin: user.isAdmin},
       ACCESS_TOKEN_SECRET,
       { expiresIn: '2d'}
     )

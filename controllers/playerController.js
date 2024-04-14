@@ -64,7 +64,7 @@ export const getPlayerByName = async (req, res) => {
     }
 
     fullName = fullName.replace(/_/g, ' ')
-    const player = await Player.findOne({ fullName: fullName }).populate(tournamentsPlayed)
+    const player = await Player.findOne({ fullName: fullName }).populate('tournamentsPlayed')
 
     if (!player) {
       return res.status(404).json({

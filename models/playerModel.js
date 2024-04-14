@@ -37,8 +37,6 @@ const playerSchema = new Schema({
   tournamentsPlayed: {
     type: [ObjectId],
     ref: 'Tournament'
-    //required: true,
-    //validate: [arrayMinLengthOne, 'Player must have at least one tournament played']
   }
 }, {timestamps: true})
 

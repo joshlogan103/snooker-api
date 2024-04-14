@@ -4,7 +4,8 @@ import Attendance from '../models/attendanceModel.js'
 
 export const getAllAttendances = async (req, res) => {
   try {
-    const attendances = await Attendance.find({})
+    const userId = req.user.userId
+    const attendances = await Attendance.find({ user: userId})
 
     if (attendances.length === 0) {
       return res.status(404).json({
