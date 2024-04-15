@@ -23,15 +23,15 @@ There is a front-end web application for the API called Maximum Break.
 
 ## Front-end Application Screenshots
 
-![Home Page](/images/Maximum-Break-Home-Page.png)
+![Home Page](/Images/Maximum-Break-Home-Page.png)
 
-![User Profile Page](/images/Maximum-Break-User-Profile.png)
+![User Profile Page](/Images/Maximum-Break-User-Profile.png)
 
-![Admin Portal](/images/Maximum-Break-Admin-Portal.png)
+![Admin Portal](/Images/Maximum-Break-Admin-Portal.png)
 
 ## Entity Relationship Design
 
-![ERD](/images/Snooker%20ERD.png)
+![ERD](/Images/Snooker%20ERD.png)
 
 ## Technologies Used
 
