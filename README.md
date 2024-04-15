@@ -29,6 +29,10 @@ There is a front-end web application for the API called Maximum Break.
 
 ![Admin Portal](./images/Maximum-Break-Admin-Portal.png)
 
+## Entity Relationship Design
+
+![ERD](./images/Snooker%20ERD.png)
+
 ## Technologies Used
 
 - Javascript
