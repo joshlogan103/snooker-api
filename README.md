@@ -23,10 +23,13 @@ There is a front-end web application for the API called Maximum Break.
 
 ## Front-end Application Screenshots
 
+#### Home Page
 ![Home Page](/Images/Maximum-Break-Home-Page.png)
 
+#### User Profile Page
 ![User Profile Page](/Images/Maximum-Break-User-Profile.png)
 
+#### Admin Portal
 ![Admin Portal](/Images/Maximum-Break-Admin-Portal.png)
 
 ## Entity Relationship Design
