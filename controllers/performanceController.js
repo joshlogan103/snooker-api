@@ -63,7 +63,7 @@ export const getPerformancesByPlayerId = async (req, res) => {
       })
     }
 
-    const performance = await Performance.find({ playerId : playerId })
+    const performance = await Performance.find({ playerId : playerId }).populate('tournamentId')
 
     if (!performance) {
       return res.status(404).json({

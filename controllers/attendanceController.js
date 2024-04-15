@@ -117,6 +117,7 @@ export const getAttendancesByTournamentId = async (req, res) => {
 export const createAttendance = async (req, res) => {
   try {
     const attendanceData = req.body
+    attendanceData.user = req.user.userId
 
     if (!attendanceData) {
       return res.status(400).json({
@@ -124,7 +125,7 @@ export const createAttendance = async (req, res) => {
       })
     }
 
-    const attendanceCreated = await Attendance.create(AttendanceData)
+    const attendanceCreated = await Attendance.create(attendanceData)
 
     if (!attendanceCreated) {
       return res.status(404).json({

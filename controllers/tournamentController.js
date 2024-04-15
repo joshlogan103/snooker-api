@@ -23,7 +23,7 @@ export const getAllTournaments = async (req, res) => {
   }
 }
 
-// Get a Tournament by Name
+// Get a Tournament by ID
 
 export const getTournamentById = async (req, res) => {
   try {
@@ -36,6 +36,36 @@ export const getTournamentById = async (req, res) => {
     }
 
     const tournament = await Tournament.findById(id)
+
+    if (!tournament) {
+      return res.status(404).json({
+        error: 'Tournament not found'
+      })
+    }
+
+    console.log(tournament)
+    res.json(tournament)
+    
+  } catch (error) {
+    res.status(500).json({
+      error: `There was an error ${error}`
+    })
+  }
+}
+
+// Get a Tournament by Name
+
+export const getTournamentByName = async (req, res) => {
+  try {
+    const { name } = req.params
+
+    if (!name) {
+      return res.status(400).json({
+        error: 'Tournament name must be provided'
+      })
+    }
+
+    const tournament = await Tournament.findOne({ name: name })
 
     if (!tournament) {
       return res.status(404).json({
