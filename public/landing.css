@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+}
+
+h1 {
+  font-family: Cantarell, Helvetica, sans-serif;
+  text-align: center;
+  margin: 1rem;
+}
+
+p {
+  text-align: center;
+  margin: 1rem;
+}
