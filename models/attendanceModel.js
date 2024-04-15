@@ -17,7 +17,8 @@ const attendanceSchema = new Schema({
     required: true
   },
   pricePaid: {
-    type: Number
+    type: Number,
+    set: v => Math.round(v * 100)/100
   },
   dateAttended: {
     type: Date,
