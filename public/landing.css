@@ -12,3 +12,13 @@ p {
   text-align: center;
   margin: 1rem;
 }
+
+ul {
+  text-align: center;
+}
+
+li {
+  margin-left: 2rem;
+  padding: .2rem;
+  max-width: 70rem;
+}
