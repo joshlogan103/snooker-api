@@ -34,7 +34,7 @@ There is a front-end web application for the API called Maximum Break.
 
 ## Entity Relationship Design
 
-![ERD](/Images/Snooker%20ERD.png)
+![ERD](/Images/Maximum-Break-ERD.png)
 
 ## Technologies Used
 
